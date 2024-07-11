@@ -1,0 +1,24 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  repo: "johalnes/diabeteshjelpen"
+  branch: main  # Or your default branch
+
+media_folder: "/public/images"
+public_folder: "/images/"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/content/blog"
+    media_folder: "/public/images"
+    public_folder: "/images/"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Featured Image", name: "heroImage", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
