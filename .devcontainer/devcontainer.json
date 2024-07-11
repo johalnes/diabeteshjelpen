@@ -1,0 +1,35 @@
+{
+    "name": "Node.js & TypeScript",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node",
+    "features": {
+        "ghcr.io/eitsupi/devcontainer-features/go-task:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        }
+    },
+    "forwardPorts": [
+        4321
+    ],
+    "portsAttributes": {
+        "4321": {
+            "label": "Astro",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "postCreateCommand": "npm install",
+    "postStartCommand": "npm run dev",
+    "remoteUser": "node",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "unifiedjs.vscode-mdx"
+            ]
+        }
+    }
+}
